@@ -1,3 +1,10 @@
+#Weather Radials with ggplot2
+
+Inspired by [Weather Radials](http://weather-radials.com/)
+
+Data [Weather Underground](wunderground.com)
+
+
 ```sh
 convert -delay 100 -loop 0 kyiv.png kharkiv.png dnipro.png odesa.png lviv.png weather-radials.gif
 ```
