@@ -3,9 +3,9 @@ library(viridis)
 library(scales)
 source('03_summarise.R')
 
-df <- summarise_data(dir = 'data/lviv/')
+df <- summarise_data(dir = 'data/dnipro/')
 
-png(filename = 'lviv.png', width = 1000, height = 1000)
+png(filename = 'dnipro.png', width = 1000, height = 1000)
 
 lbls = data.frame(x = rep(as.Date('2016-07-01'), 5), 
                   y = seq(-10, 30, 10), 
@@ -14,7 +14,7 @@ lbls = data.frame(x = rep(as.Date('2016-07-01'), 5),
 ggplot(df)+
   geom_hline(yintercept = 0, color = 'gray', size = 0.5)+
   geom_linerange(aes(x = date, ymin = mint, ymax = maxt, color = meant), size = 1)+
-  geom_text(aes(x = as.Date('2016-01-01'), y = -50, label = 'Львів',
+  geom_text(aes(x = as.Date('2016-01-01'), y = -50, label = 'Дніпро',
                 family = 'Ubuntu Condensed'), size = 18, color = "#3A3F4A")+
   geom_text(data = lbls, aes(x = x, y = y, label = label,
                 family = 'Ubuntu Condensed'), size = 6, color = "#3A3F4A", hjust = 0.5)+
