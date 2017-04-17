@@ -3,9 +3,9 @@ library(viridis)
 library(scales)
 source('03_summarise.R')
 
-df <- summarise_data(dir = 'data/dnipro/')
+df <- summarise_data(dir = 'data/odesa/')
 
-png(filename = 'dnipro.png', width = 1000, height = 1000)
+png(filename = 'odesa.png', width = 1000, height = 1000)
 
 lbls = data.frame(x = rep(as.Date('2016-07-01'), 5), 
                   y = seq(-10, 30, 10), 
@@ -14,7 +14,7 @@ lbls = data.frame(x = rep(as.Date('2016-07-01'), 5),
 ggplot(df)+
   geom_hline(yintercept = 0, color = 'gray', size = 0.5)+
   geom_linerange(aes(x = date, ymin = mint, ymax = maxt, color = meant), size = 1)+
-  geom_text(aes(x = as.Date('2016-01-01'), y = -50, label = 'Дніпро',
+  geom_text(aes(x = as.Date('2016-01-01'), y = -50, label = 'Одеса',
                 family = 'Ubuntu Condensed'), size = 18, color = "#3A3F4A")+
   geom_text(data = lbls, aes(x = x, y = y, label = label,
                 family = 'Ubuntu Condensed'), size = 6, color = "#3A3F4A", hjust = 0.5)+
@@ -29,7 +29,7 @@ ggplot(df)+
                      breaks = seq(-30, 40, 10), 
                      expand = c(0, 0))+
   coord_polar()+
-  guides(color = guide_colorbar(title = "cередньодобова температура, C", 
+  guides(color = guide_colorbar(title = "cередньодобова температура у 2016 році, C", 
                                 raster = F, 
                                 title.position = "top"))+
   theme_minimal()+
@@ -41,8 +41,8 @@ ggplot(df)+
     axis.text.y = element_blank(),
     legend.position = c(0.5, 0.40),
     legend.direction = 'horizontal',
-    legend.key.height = unit(3, "pt"),
-    legend.key.width = unit(40, "pt"),
+    legend.key.height = unit(4, "pt"),
+    legend.key.width = unit(50, "pt"),
     legend.text = element_text(size = 15),
     legend.title = element_text(size = 15),
     legend.title.align = 0.5,
